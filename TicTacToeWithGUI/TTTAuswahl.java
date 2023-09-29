@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import java.awt.Color;
+import java.awt.Dimension;
 
 public class TTTAuswahl extends JFrame implements ActionListener {
     JTextField auswahl = new JTextField();
@@ -13,18 +14,21 @@ public class TTTAuswahl extends JFrame implements ActionListener {
 
     TTTAuswahl() {
         submitButton.setBounds(0, 0, 50, 30);
-        submitButton.setText("Abschicken");
+        submitButton.setText("Benutzen");
         submitButton.setFocusable(false);
         submitButton.setFont(new Font("Comic Sans", Font.BOLD, 13));
         submitButton.setBackground(Color.lightGray);
+        submitButton.addActionListener(this);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(new FlowLayout());
+        this.setVisible(true);
+        this.setSize(400, 120);
+
+        auswahl.setPreferredSize(new Dimension(100, 30));
+
         this.add(auswahl);
         this.add(submitButton);
-        this.setVisible(true);
-
-        submitButton.addActionListener(this);
     }
 
     @Override
