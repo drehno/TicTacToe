@@ -58,7 +58,7 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent w) {
         if (w.getSource() == this.playButton) {
             this.dispose();
-            new TTTPlayingFrame();
+            new TTTAuswahl();
         } else if (w.getSource() == this.settingsButton) {
             this.dispose();
             new TTTSettings();
