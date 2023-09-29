@@ -113,7 +113,6 @@ public class App {
         System.out.println(playfield[2][0] + "|" + playfield[2][1] + "|" + playfield[2][2]);
         System.out.println("");
         System.out.println("");
-
     }
 
     private static char[][] zugSetzen(char[][] playfield, char oOderx, int zug) {
