@@ -8,11 +8,12 @@ public class TTTPlayingFrame extends JFrame implements ActionListener {
     JPanel spielfeld = new JPanel();
     JButton[] buttonfeld = new JButton[9];
     boolean spieler1Zug = true;
-    String spieler1xOdero = " ";
-    String spieler2xOdero = " ";
-    // JTextField auswahl = new JTextField();
+    String spieler1xOdero = "";
+    String spieler2xOdero = "";
     JLabel ueberschrift = new JLabel();
     JPanel titelPanel = new JPanel();
+    JPanel newGamePanel = new JPanel();
+    JButton restartButton = new JButton();
 
     TTTPlayingFrame(String oOderx) {
         spieler1xOdero = oOderx;
@@ -29,7 +30,13 @@ public class TTTPlayingFrame extends JFrame implements ActionListener {
         ueberschrift.setText("TicTacToe");
         ueberschrift.setOpaque(true);
 
+        restartButton.setText("neustart");
+        restartButton.setFont(new Font("Comic Sans", Font.BOLD, 20));
+
         titelPanel.setLayout(new BorderLayout());
+
+        newGamePanel.setLayout(new BorderLayout());
+        newGamePanel.add(restartButton);
 
         this.setTitle("TicTacToe");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,6 +58,7 @@ public class TTTPlayingFrame extends JFrame implements ActionListener {
         titelPanel.add(ueberschrift);
         this.add(spielfeld);
         this.add(titelPanel, BorderLayout.NORTH);
+        this.add(newGamePanel, BorderLayout.SOUTH);
     }
 
     @Override
@@ -115,7 +123,6 @@ public class TTTPlayingFrame extends JFrame implements ActionListener {
             buttonfeld[i].setEnabled(false);
         }
         ueberschrift.setText(winner + " wins");
-
-        new TTTneustart();
     }
+
 }
