@@ -10,7 +10,7 @@ public class TTTPlayingFrame extends JFrame implements ActionListener {
     boolean spieler1Zug = true;
     String spieler1xOdero = " ";
     String spieler2xOdero = " ";
-    JTextField auswahl = new JTextField();
+    // JTextField auswahl = new JTextField();
     JLabel ueberschrift = new JLabel();
     JPanel titelPanel = new JPanel();
 
@@ -79,7 +79,7 @@ public class TTTPlayingFrame extends JFrame implements ActionListener {
 
     private void check(String xOdero) {
         if (buttonfeld[0].getText().compareTo(xOdero) == 0 && buttonfeld[1].getText().compareTo(xOdero) == 0
-                && buttonfeld[3].getText().compareTo(xOdero) == 0) {
+                && buttonfeld[2].getText().compareTo(xOdero) == 0) {
             checkWinner(0, 1, 2, xOdero);
         } else if (buttonfeld[3].getText().compareTo(xOdero) == 0 && buttonfeld[4].getText().compareTo(xOdero) == 0
                 && buttonfeld[5].getText().compareTo(xOdero) == 0) {
@@ -107,14 +107,15 @@ public class TTTPlayingFrame extends JFrame implements ActionListener {
     }
 
     private void checkWinner(int a, int b, int c, String winner) {
-        buttonfeld[a].setBackground(Color.GREEN);
-        buttonfeld[b].setBackground(Color.GREEN);
-        buttonfeld[c].setBackground(Color.GREEN);
+        buttonfeld[a].setBackground(Color.green);
+        buttonfeld[b].setBackground(Color.green);
+        buttonfeld[c].setBackground(Color.green);
 
         for (int i = 0; i < 9; i++) {
             buttonfeld[i].setEnabled(false);
         }
         ueberschrift.setText(winner + " wins");
-    }
 
+        new TTTneustart();
+    }
 }
