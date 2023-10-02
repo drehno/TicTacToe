@@ -32,6 +32,8 @@ public class TTTPlayingFrame extends JFrame implements ActionListener {
 
         restartButton.setText("neustart");
         restartButton.setFont(new Font("Comic Sans", Font.BOLD, 20));
+        restartButton.addActionListener(this);
+        restartButton.setFocusable(false);
 
         titelPanel.setLayout(new BorderLayout());
 
@@ -63,22 +65,27 @@ public class TTTPlayingFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        for (int i = 0; i < 9; i++) {
-            if (e.getSource() == buttonfeld[i]) {
-                if (buttonfeld[i].getText() == "") {
-                    if (spieler1Zug) {
-                        buttonfeld[i].setForeground(Color.BLACK);
-                        buttonfeld[i].setText(spieler1xOdero);
-                        buttonfeld[i].setFont(new Font("Comic Sans", Font.BOLD, 100));
-                        spieler1Zug = false;
-                        check(spieler1xOdero);
-                    } else {
-                        buttonfeld[i].setForeground(Color.BLACK);
-                        buttonfeld[i].setText(spieler2xOdero);
-                        buttonfeld[i].setFont(new Font("Comic Sans", Font.BOLD, 100));
-                        spieler1Zug = true;
-                        check(spieler2xOdero);
+        if (e.getSource() == this.restartButton) {
+            this.dispose();
+            new TTTPlayingFrame(spieler1xOdero);
+        } else {
+            for (int i = 0; i < 9; i++) {
+                if (e.getSource() == buttonfeld[i]) {
+                    if (buttonfeld[i].getText() == "") {
+                        if (spieler1Zug) {
+                            buttonfeld[i].setForeground(Color.BLACK);
+                            buttonfeld[i].setText(spieler1xOdero);
+                            buttonfeld[i].setFont(new Font("Comic Sans", Font.BOLD, 100));
+                            spieler1Zug = false;
+                            check(spieler1xOdero);
+                        } else {
+                            buttonfeld[i].setForeground(Color.BLACK);
+                            buttonfeld[i].setText(spieler2xOdero);
+                            buttonfeld[i].setFont(new Font("Comic Sans", Font.BOLD, 100));
+                            spieler1Zug = true;
+                            check(spieler2xOdero);
 
+                        }
                     }
                 }
             }
