@@ -11,9 +11,8 @@ import javax.swing.JPanel;
 
 public class TicTacToeFrame extends JFrame implements ActionListener {
     JButton playButton;
-    JButton settingsButton;
+    JButton settingsButton = new JButton();
     JLabel settingsLabel;
-    JPanel menuWriting;
 
     TicTacToeFrame() {
 
@@ -34,14 +33,10 @@ public class TicTacToeFrame extends JFrame implements ActionListener {
         playButton.setFont(new Font("Comic Sans", Font.BOLD, 13));
         playButton.setBackground(Color.lightGray);
 
-        settingsButton = new JButton();
         settingsButton.setIcon(settings);
         settingsButton.setBounds(450, 0, 50, 50);
         settingsButton.addActionListener(this);
         settingsButton.setFocusable(false);
-        // settingsButton.setForeground(Color.black);
-        // settingsButton.setBackground(Color.BLACK);
-        // settingsButton.setBorder(BorderFactory.createEmptyBorder());
 
         this.setTitle("TicTacToe");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

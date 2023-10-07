@@ -1,21 +1,17 @@
 import javax.swing.JTextField;
-import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import java.awt.Color;
-import java.awt.Dimension;
 import javax.swing.JLabel;
 
 public class TTTAuswahl extends JFrame implements ActionListener {
     JTextField auswahl = new JTextField();
     JButton submitButton = new JButton();
     JPanel firstRow = new JPanel();
-    JPanel veryFirstRow = new JPanel();
     JLabel womitSpielen = new JLabel();
 
     TTTAuswahl() {
@@ -42,22 +38,12 @@ public class TTTAuswahl extends JFrame implements ActionListener {
         firstRow.add(auswahl);
         firstRow.add(womitSpielen);
 
-        /*
-         * veryFirstRow.setLayout(null);
-         * veryFirstRow.setBounds(0, 0, 350, 50);
-         * veryFirstRow.setBackground(Color.blue);
-         * veryFirstRow.add(womitSpielen);
-         */
-
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setVisible(true);
         this.setSize(400, 170);
         this.getContentPane().setBackground(new Color(95, 158, 160));
         this.add(firstRow);
-        this.add(veryFirstRow);
-        // this.add(submitButton);
-        // this.add(auswahl);
     }
 
     @Override
